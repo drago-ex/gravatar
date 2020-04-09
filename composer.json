@@ -1,0 +1,20 @@
+{
+	"name": "drago/gravatar",
+	"type": "library",
+	"description": "Simple gravatar.",
+	"license": ["MIT"],
+	"authors": [
+		{
+			"name": "Zdeněk Papučík",
+			"homepage": "https://github.com/accgit"
+		}
+	],
+	"require": {
+		"php": ">=7.1",
+		"nette/di": "^3.0",
+		"nette/utils": "^3.1"
+	},
+	"autoload": {
+		"classmap": ["src/"]
+	}
+}
