@@ -10,6 +10,7 @@ declare(strict_types = 1);
 namespace Drago\User;
 
 use Nette;
+use Nette\Utils\Strings;
 
 
 /**
@@ -31,15 +32,25 @@ class Gravatar
 	/** @var string */
 	private $rating;
 
+	/** @var string */
+	private $email;
+
+
+	public function setSize(int $size): void
+	{
+		$this->size = $size;
+	}
+
 
 	/**
 	 * @throws \Exception
 	 */
-	public function setSize(int $size = null): void
+	private function getSize()
 	{
-		if ($size > 2048 || $size < 0) {
+		if ($this->size > 2048 || $this->size < 0) {
 			throw new \Exception('Size must be between 1 pixels and 2048 pixels.');
 		}
+		return $this->size;
 	}
 
 
@@ -51,6 +62,15 @@ class Gravatar
 		if (!Nette\Utils\Validators::isEmail($email)) {
 			throw new \Exception('Email address is not valid.');
 		}
+
+		$hash = Strings::lower(Strings::trim($email));
+		$this->email = hash('md5', $hash);
+	}
+
+
+	private function getEmail(): string
+	{
+		return $this->email;
 	}
 
 
