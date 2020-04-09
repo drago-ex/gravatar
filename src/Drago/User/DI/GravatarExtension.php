@@ -22,11 +22,11 @@ class GravatarExtension extends Nette\DI\CompilerExtension
 	private $defaults = [];
 
 
-	public function __construct(string $image, string $size, string $rating)
+	public function __construct(int $size, string $defaultImage, string $rating)
 	{
 		$this->defaults = [
-			'image' => $image,
 			'size' => $size,
+			'defaultImage' => $defaultImage,
 			'rating' => $rating
 		];
 	}

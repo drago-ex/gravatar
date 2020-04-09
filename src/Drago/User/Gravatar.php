@@ -22,25 +22,35 @@ class Gravatar
 	/** @var string */
 	private const URL = 'https://www.gravatar.com/avatar/';
 
-	/** @var string */
-	private $image;
+	/** @var int */
+	private $size;
 
 	/** @var string */
-	private $size;
+	private $defaultImage;
 
 	/** @var string */
 	private $rating;
 
 
-	public function setEmail(string $email): void
+	/**
+	 * @throws \Exception
+	 */
+	public function setSize(int $size = null): void
 	{
-
+		if ($size > 2048 || $size < 0) {
+			throw new \Exception('Size must be between 1 pixels and 2048 pixels.');
+		}
 	}
 
 
-	public function setSize(int $size = null): void
+	/**
+	 * @throws \Exception
+	 */
+	public function setEmail(string $email): void
 	{
-
+		if (!Nette\Utils\Validators::isEmail($email)) {
+			throw new \Exception('Email address is not valid.');
+		}
 	}
 
 
