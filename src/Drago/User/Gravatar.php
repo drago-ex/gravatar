@@ -36,6 +36,14 @@ class Gravatar
 	private $email;
 
 
+	public function __construct(int $size, string $defaultImage, string $rating)
+	{
+		$this->size = $size;
+		$this->defaultImage = $defaultImage;
+		$this->rating = $rating;
+	}
+
+
 	public function setSize(int $size): void
 	{
 		$this->size = $size;
