@@ -45,7 +45,7 @@ class Gravatar
 	/**
 	 * @throws \Exception
 	 */
-	private function getSize()
+	private function getSize(): int
 	{
 		if ($this->size > 2048 || $this->size < 0) {
 			throw new \Exception('Size must be between 1 pixels and 2048 pixels.');
@@ -76,6 +76,11 @@ class Gravatar
 
 	public function getGravatar(): string
 	{
-
+		$gravatar = self::URL;
+		$gravatar .= $this->getEmail();
+		$gravatar .= '?s=' . $this->getSize();
+		$gravatar .= '&d=' . $this->defaultImage;
+		$gravatar .= '&r=' . $this->rating;
+		return $gravatar;
 	}
 }
