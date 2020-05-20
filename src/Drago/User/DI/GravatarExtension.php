@@ -36,6 +36,6 @@ class GravatarExtension extends Nette\DI\CompilerExtension
 	{
 		$builder = $this->getContainerBuilder();
 		$builder->addDefinition($this->prefix('gravatar'))
-			->setFactory(Drago\User\Gravatar::class, [$this->defaults]);
+			->setFactory(Drago\User\Gravatar::class, $this->defaults);
 	}
 }
