@@ -9,8 +9,6 @@ declare(strict_types = 1);
 
 namespace Drago\User;
 
-use Nette;
-
 
 /**
  * Simple gravatar.
@@ -21,11 +19,8 @@ trait GravatarTrait
 	private $gravatar;
 
 
-	public function injectGravatar(Gravatar $gravatar, Nette\Application\UI\Presenter $presenter): void
+	public function injectGravatar(Gravatar $gravatar): void
 	{
 		$this->gravatar = $gravatar;
-		$presenter->onRender[] = function () use ($presenter) {
-			$presenter->template->gravatar = $this->gravatar;
-		};
 	}
 }
