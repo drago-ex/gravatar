@@ -1,5 +1,5 @@
 {
-	"name": "drago/gravatar",
+	"name": "drago-ex/gravatar",
 	"type": "library",
 	"description": "Simple gravatar.",
 	"license": ["MIT"],
