@@ -27,7 +27,7 @@ class GravatarExtension extends Nette\DI\CompilerExtension
 		$this->defaults = [
 			'size' => $size,
 			'defaultImage' => $defaultImage,
-			'rating' => $rating
+			'rating' => $rating,
 		];
 	}
 
