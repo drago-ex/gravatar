@@ -26,7 +26,7 @@ test(function () {
 	$gravatar = gravatar();
 	$gravatar->setEmail('someone@somewhere.com');
 
-	Assert::exception(function () use ($gravatar) {;
+	Assert::exception(function () use ($gravatar) {
 		$gravatar->setSize(0);
 		$gravatar->getGravatar();
 	}, Exception::class, 'Size must be between 1 pixels and 2048 pixels.');
