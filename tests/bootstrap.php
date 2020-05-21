@@ -8,6 +8,9 @@ Tester\Environment::setup();
 date_default_timezone_set('Europe/Prague');
 define('TEMP_DIR', __DIR__ . '/tmp');
 
+@mkdir(dirname(TEMP_DIR));
+@mkdir(TEMP_DIR);
+
 $boot = new Nette\Configurator;
 $boot->setTempDirectory(TEMP_DIR);
 $boot->createRobotLoader()
@@ -16,3 +19,9 @@ $boot->createRobotLoader()
 	->register();
 
 return $boot->createContainer();
+
+
+function test(Closure $function): void
+{
+	$function();
+}
