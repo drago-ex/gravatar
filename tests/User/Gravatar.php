@@ -15,11 +15,9 @@ function gravatar(): User\Gravatar
 
 
 test(function () {
-	$gravatar = gravatar();
-	$gravatar->setEmail('someone@somewhere');
-
-	Assert::exception(function () use ($gravatar) {
+	Assert::exception(function () {
+		$gravatar = gravatar();
+		$gravatar->setEmail('someone@somewhere');
 		$gravatar->getGravatar();
 	}, Exception::class, 'Email address is not valid.');
 });
-
