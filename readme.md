@@ -13,3 +13,15 @@ Simple gravatar.
 [![Build Status](https://travis-ci.org/drago-ex/gravatar.svg?branch=master)](https://travis-ci.org/drago-ex/gravatar)
 [![CodeFactor](https://www.codefactor.io/repository/github/drago-ex/gravatar/badge)](https://www.codefactor.io/repository/github/drago-ex/gravatar)
 [![Coverage Status](https://coveralls.io/repos/github/drago-ex/gravatar/badge.svg?branch=master)](https://coveralls.io/github/drago-ex/gravatar?branch=master)
+
+## Requirements
+- PHP 7.1 or higher
+- composer
+
+## Installation
+```
+composer require drago-ex/gravatar
+```
+
+## Documentation
+https://github.com/drago-ex/gravatar/wiki/Documentation
