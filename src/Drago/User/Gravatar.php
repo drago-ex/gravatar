@@ -55,7 +55,7 @@ class Gravatar
 	 */
 	private function getSize(): int
 	{
-		if ($this->size > 2048 || $this->size < 0) {
+		if ($this->size > 2048 || $this->size < 1) {
 			throw new \Exception('Size must be between 1 pixels and 2048 pixels.');
 		}
 		return $this->size;
