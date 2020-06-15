@@ -2,36 +2,39 @@
 
 declare(strict_types = 1);
 
-use Drago\User;
-use Nette\DI;
+use Drago\User\DI\GravatarExtension;
+use Drago\User\Gravatar;
+use Nette\DI\Compiler;
+use Nette\DI\Container;
+use Nette\DI\ContainerLoader;
 use Tester\Assert;
 
 $container = require __DIR__ . '/../../bootstrap.php';
 
 
-class GravatarExtension extends TestContainer
+class TestGravatarExtension extends TestContainer
 {
-	private function createContainer(): DI\Container
+	private function createContainer(): Container
 	{
 		$params = $this->container->getParameters();
-		$loader = new DI\ContainerLoader($params['tempDir'], true);
-		$class = $loader->load(function (DI\Compiler $compiler): void {
-			$compiler->addExtension('gravatar', new User\DI\GravatarExtension(80, 'mm', 'g'));
+		$loader = new ContainerLoader($params['tempDir'], true);
+		$class = $loader->load(function (Compiler $compiler): void {
+			$compiler->addExtension('gravatar', new GravatarExtension(80, 'mm', 'g'));
 		});
 		return new $class;
 	}
 
 
-	private function geClassByType(): User\Gravatar
+	private function geClassByType(): Gravatar
 	{
 		return $this->createContainer()
-			->getByType(User\Gravatar::class);
+			->getByType(Gravatar::class);
 	}
 
 
 	public function test01(): void
 	{
-		Assert::type(User\Gravatar::class, $this->geClassByType());
+		Assert::type(Gravatar::class, $this->geClassByType());
 	}
 
 
@@ -44,5 +47,5 @@ class GravatarExtension extends TestContainer
 	}
 }
 
-$extension = new GravatarExtension($container);
+$extension = new TestGravatarExtension($container);
 $extension->run();

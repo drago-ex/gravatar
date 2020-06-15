@@ -9,14 +9,14 @@ declare(strict_types = 1);
 
 namespace Drago\User\DI;
 
-use Drago;
-use Nette;
+use Drago\User\Gravatar;
+use Nette\DI\CompilerExtension;
 
 
 /**
  * Register services.
  */
-class GravatarExtension extends Nette\DI\CompilerExtension
+class GravatarExtension extends CompilerExtension
 {
 	/** @var array */
 	private $defaults = [];
@@ -36,6 +36,6 @@ class GravatarExtension extends Nette\DI\CompilerExtension
 	{
 		$builder = $this->getContainerBuilder();
 		$builder->addDefinition($this->prefix('gravatar'))
-			->setFactory(Drago\User\Gravatar::class, $this->defaults);
+			->setFactory(Gravatar::class, $this->defaults);
 	}
 }

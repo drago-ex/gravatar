@@ -2,15 +2,15 @@
 
 declare(strict_types = 1);
 
-use Drago\User;
+use Drago\User\Gravatar;
 use Tester\Assert;
 
 require __DIR__ . '/../bootstrap.php';
 
 
-function gravatar(): User\Gravatar
+function gravatar(): Gravatar
 {
-	return new User\Gravatar(80, 'mm', 'g');
+	return new Gravatar(80, 'mm', 'g');
 }
 
 

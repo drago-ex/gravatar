@@ -9,8 +9,10 @@ declare(strict_types = 1);
 
 namespace Drago\User;
 
-use Nette;
+use Exception;
+use Nette\SmartObject;
 use Nette\Utils\Strings;
+use Nette\Utils\Validators;
 
 
 /**
@@ -18,7 +20,7 @@ use Nette\Utils\Strings;
  */
 class Gravatar
 {
-	use Nette\SmartObject;
+	use SmartObject;
 
 	/** @var string */
 	private const URL = 'https://www.gravatar.com/avatar/';
@@ -51,24 +53,24 @@ class Gravatar
 
 
 	/**
-	 * @throws \Exception
+	 * @throws Exception
 	 */
 	private function getSize(): int
 	{
 		if ($this->size > 2048 || $this->size < 1) {
-			throw new \Exception('Size must be between 1 pixels and 2048 pixels.');
+			throw new Exception('Size must be between 1 pixels and 2048 pixels.');
 		}
 		return $this->size;
 	}
 
 
 	/**
-	 * @throws \Exception
+	 * @throws Exception
 	 */
 	public function setEmail(string $email): void
 	{
-		if (!Nette\Utils\Validators::isEmail($email)) {
-			throw new \Exception('Email address is not valid.');
+		if (!Validators::isEmail($email)) {
+			throw new Exception('Email address is not valid.');
 		}
 
 		$hash = Strings::lower(Strings::trim($email));
