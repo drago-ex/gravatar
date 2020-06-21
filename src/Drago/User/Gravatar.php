@@ -22,45 +22,34 @@ class Gravatar
 {
 	use SmartObject;
 
-	/** @var string */
-	private const URL = 'https://www.gravatar.com/avatar/';
-
-	/** @var int */
-	private $size;
-
-	/** @var string */
-	private $defaultImage;
-
-	/** @var string */
-	private $rating;
-
-	/** @var string */
-	private $email;
+	private string $url = 'https://www.gravatar.com/avatar/';
+	private int $size;
+	private string $defaultImage;
+	private string $rating;
+	private string $email;
 
 
+	/**
+	 * @throws Exception
+	 */
 	public function __construct(int $size, string $defaultImage, string $rating)
 	{
 		$this->size = $size;
 		$this->defaultImage = $defaultImage;
 		$this->rating = $rating;
-	}
-
-
-	public function setSize(int $size): void
-	{
-		$this->size = $size;
+		$this->setSize($this->size);
 	}
 
 
 	/**
 	 * @throws Exception
 	 */
-	private function getSize(): int
+	public function setSize(int $size): void
 	{
-		if ($this->size > 2048 || $this->size < 1) {
+		if ($size > 2048 || $size < 1) {
 			throw new Exception('Size must be between 1 pixels and 2048 pixels.');
 		}
-		return $this->size;
+		$this->size = $size;
 	}
 
 
@@ -78,19 +67,11 @@ class Gravatar
 	}
 
 
-	private function getEmail(): string
-	{
-		return $this->email;
-	}
-
-
 	public function getGravatar(): string
 	{
-		$gravatar = self::URL;
-		$gravatar .= $this->getEmail();
-		$gravatar .= '?s=' . $this->getSize();
-		$gravatar .= '&d=' . $this->defaultImage;
-		$gravatar .= '&r=' . $this->rating;
-		return $gravatar;
+		return $this->url . $this->email
+			. '?s=' . $this->size
+			. '&d=' . $this->defaultImage
+			. '&r=' . $this->rating;
 	}
 }

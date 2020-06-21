@@ -15,8 +15,7 @@ namespace Drago\User;
  */
 trait GravatarTrait
 {
-	/** @var Gravatar */
-	private $gravatar;
+	private Gravatar $gravatar;
 
 
 	public function injectGravatar(Gravatar $gravatar): void
