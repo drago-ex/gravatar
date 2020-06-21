@@ -26,7 +26,7 @@ jobs:
         - 7.4
 
 
-    - name: Nette Tester
+    - stage: Nette Tester
       install:
         - travis_retry composer require nette/tester --dev
       script:
