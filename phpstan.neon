@@ -1,14 +1,11 @@
 includes:
 	- vendor/phpstan/phpstan-nette/extension.neon
-	
-	parameters:
-    bootstrapFiles:
-        - constants.php
+
 
 parameters:
 	level: 5
 	bootstrapFiles:
 		- bootstrap.php
-		
+
 	scanDirectories:
 		- src
