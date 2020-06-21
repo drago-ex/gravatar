@@ -26,7 +26,7 @@ jobs:
         - 7.4
 
 
-    - name: Nette Coding Standard
+    - name: Static Analysis
       script:
         - composer run-script phpstan
       language: php
