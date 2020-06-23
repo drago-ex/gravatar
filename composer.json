@@ -1,7 +1,7 @@
 {
 	"name": "drago-ex/gravatar",
 	"type": "library",
-	"description": "Simple gravatar.",
+	"description": "Simple gravatar for Nette Framework",
 	"license": ["MIT"],
 	"authors": [
 		{
