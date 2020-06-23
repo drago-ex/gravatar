@@ -6,7 +6,7 @@
 <p align="center">Extension for Nette Framework</p>
 
 ## Drago Gravatar
-Simple gravatar.
+Simple Gravatar.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://raw.githubusercontent.com/drago-ex/gravatar/master/license.md)
 [![PHP version](https://badge.fury.io/ph/drago-ex%2Fgravatar.svg)](https://badge.fury.io/ph/drago-ex%2Fgravatar)
