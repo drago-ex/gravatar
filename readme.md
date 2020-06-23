@@ -5,7 +5,7 @@
 <h3 align="center">Drago Extension</h3>
 <p align="center">Simple packages built on Nette Framework</p>
 
-## Info
+## Drago Gravatar
 Simple gravatar.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://raw.githubusercontent.com/drago-ex/gravatar/master/license.md)
@@ -14,8 +14,8 @@ Simple gravatar.
 [![CodeFactor](https://www.codefactor.io/repository/github/drago-ex/gravatar/badge)](https://www.codefactor.io/repository/github/drago-ex/gravatar)
 [![Coverage Status](https://coveralls.io/repos/github/drago-ex/gravatar/badge.svg?branch=master)](https://coveralls.io/github/drago-ex/gravatar?branch=master)
 
-## Requirements
-- PHP 7.1 or higher
+## Technology
+- PHP 7.4 or higher
 - composer
 
 ## Installation
@@ -23,5 +23,20 @@ Simple gravatar.
 composer require drago-ex/gravatar
 ```
 
-## Documentation
-https://github.com/drago-ex/gravatar/wiki/Documentation
+## Extension registration
+```php
+extensions:
+	- Drago\User\DI\GravatarExtension(80, 'mm', 'g')
+```
+
+## Use
+```php
+$gravatar = $this->gravatar;
+$gravatar->setEmail('someone@somewhere.com');
+$this->template->gravatar = $gravatar->getGravatar();
+```
+
+## Template
+```latte
+<img src="{$gravatar}" alt="">
+```
