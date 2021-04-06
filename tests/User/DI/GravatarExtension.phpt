@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 use Drago\User\DI\GravatarExtension;
 use Drago\User\Gravatar;

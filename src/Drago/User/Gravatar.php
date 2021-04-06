@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 /**
  * Drago Extension
@@ -22,22 +22,15 @@ class Gravatar
 {
 	use SmartObject;
 
-	private string $url = 'https://www.gravatar.com/avatar/';
-	private int $size;
-	private string $defaultImage;
-	private string $rating;
-	private string $email;
-
-
-	/**
-	 * @throws Exception
-	 */
-	public function __construct(int $size, string $defaultImage, string $rating)
-	{
-		$this->size = $size;
+	public function __construct(
+		private string $url,
+		private int $size,
+		private string $defaultImage,
+		private string $rating,
+		private string $email,
+	) {
+		$this->url = 'https://www.gravatar.com/avatar/';
 		$this->setSize($this->size);
-		$this->defaultImage = $defaultImage;
-		$this->rating = $rating;
 	}
 
 

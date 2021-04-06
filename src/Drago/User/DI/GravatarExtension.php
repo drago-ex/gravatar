@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 /**
  * Drago Extension
@@ -18,8 +18,7 @@ use Nette\DI\CompilerExtension;
  */
 class GravatarExtension extends CompilerExtension
 {
-	/** @var array */
-	private $defaults = [];
+	private array $defaults = [];
 
 
 	public function __construct(int $size, string $defaultImage, string $rating)
