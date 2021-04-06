@@ -22,14 +22,15 @@ class Gravatar
 {
 	use SmartObject;
 
+	private string $url = 'https://www.gravatar.com/avatar/';
+	private string $email;
+
+
 	public function __construct(
-		private string $url,
 		private int $size,
 		private string $defaultImage,
 		private string $rating,
-		private string $email,
 	) {
-		$this->url = 'https://www.gravatar.com/avatar/';
 		$this->setSize($this->size);
 	}
 
