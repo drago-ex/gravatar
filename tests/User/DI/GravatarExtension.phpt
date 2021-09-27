@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * Test: Drago\User\DI\GravatarExtension
+ */
+
 declare(strict_types=1);
 
 use Drago\User\DI\GravatarExtension;
@@ -8,12 +12,22 @@ use Nette\DI\Compiler;
 use Nette\DI\Container;
 use Nette\DI\ContainerLoader;
 use Tester\Assert;
+use Tester\TestCase;
 
 $container = require __DIR__ . '/../../bootstrap.php';
 
 
-class TestGravatarExtension extends TestContainer
+class TestGravatarExtension extends TestCase
 {
+	protected Container $container;
+
+
+	public function __construct(Container $container)
+	{
+		$this->container = $container;
+	}
+
+
 	private function createContainer(): Container
 	{
 		$params = $this->container->getParameters();
@@ -47,5 +61,4 @@ class TestGravatarExtension extends TestContainer
 	}
 }
 
-$extension = new TestGravatarExtension($container);
-$extension->run();
+(new TestGravatarExtension($container))->run();
