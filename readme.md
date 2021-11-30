@@ -26,7 +26,7 @@ composer require drago-ex/gravatar
 ## Extension registration
 ```neon
 extensions:
-	- Drago\User\DI\GravatarExtension(80, 'mm', 'g')
+	- Drago\User\DI\GravatarExtension(size: 80, defaultImage: 'mm', rating: 'g')
 ```
 
 ## Use
