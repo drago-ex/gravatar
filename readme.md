@@ -24,7 +24,7 @@ composer require drago-ex/gravatar
 ```
 
 ## Extension registration
-```php
+```neon
 extensions:
 	- Drago\User\DI\GravatarExtension(80, 'mm', 'g')
 ```
