@@ -26,6 +26,9 @@ class Gravatar
 	private string $email;
 
 
+	/**
+	 * @throws SizeException
+	 */
 	public function __construct(
 		private int $size,
 		private string $defaultImage,
@@ -36,24 +39,24 @@ class Gravatar
 
 
 	/**
-	 * @throws Exception
+	 * @throws SizeException
 	 */
 	public function setSize(int $size): void
 	{
 		if ($size > 2048 || $size < 1) {
-			throw new Exception('Size must be between 1 pixels and 2048 pixels.');
+			throw new SizeException('Size must be between 1 pixels and 2048 pixels.');
 		}
 		$this->size = $size;
 	}
 
 
 	/**
-	 * @throws Exception
+	 * @throws EmailException
 	 */
 	public function setEmail(string $email): void
 	{
 		if (!Validators::isEmail($email)) {
-			throw new Exception('Email address is not valid.');
+			throw new EmailException('Email address is not valid.');
 		}
 
 		$hash = Strings::lower(Strings::trim($email));

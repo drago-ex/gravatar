@@ -6,7 +6,9 @@
 
 declare(strict_types=1);
 
+use Drago\User\EmailException;
 use Drago\User\Gravatar;
+use Drago\User\SizeException;
 use Tester\Assert;
 
 require __DIR__ . '/../bootstrap.php';
@@ -22,7 +24,7 @@ test('Email validation', function () {
 	Assert::exception(function () {
 		gravatar()->setEmail('someone@somewhere');
 		gravatar()->getGravatar();
-	}, Exception::class, 'Email address is not valid.');
+	}, EmailException::class, 'Email address is not valid.');
 });
 
 
@@ -32,5 +34,5 @@ test('Size validation', function () {
 
 	Assert::exception(function () use ($gravatar) {
 		$gravatar->setSize(0);
-	}, Exception::class, 'Size must be between 1 pixels and 2048 pixels.');
+	}, SizeException::class, 'Size must be between 1 pixels and 2048 pixels.');
 });
