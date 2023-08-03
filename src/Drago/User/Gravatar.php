@@ -30,8 +30,8 @@ class Gravatar
 	 */
 	public function __construct(
 		private int $size,
-		private string $defaultImage,
-		private string $rating,
+		private readonly string $defaultImage,
+		private readonly string $rating,
 	) {
 		$this->setSize($this->size);
 	}
