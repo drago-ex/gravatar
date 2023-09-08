@@ -18,7 +18,7 @@ use Nette\DI\CompilerExtension;
  */
 class GravatarExtension extends CompilerExtension
 {
-	private array $defaults = [];
+	private array $defaults;
 
 
 	public function __construct(int $size, string $defaultImage, string $rating)
