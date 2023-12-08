@@ -9,7 +9,6 @@ declare(strict_types=1);
 
 namespace Drago\User;
 
-use Nette\SmartObject;
 use Nette\Utils\Strings;
 use Nette\Utils\Validators;
 
@@ -19,8 +18,6 @@ use Nette\Utils\Validators;
  */
 class Gravatar
 {
-	use SmartObject;
-
 	private string $url = 'https://www.gravatar.com/avatar/';
 	private string $email;
 
