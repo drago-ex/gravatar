@@ -34,5 +34,5 @@ test('Size validation', function () {
 
 	Assert::exception(function () use ($gravatar) {
 		$gravatar->setSize(0);
-	}, SizeException::class, 'Size must be between 1 pixels and 2048 pixels.');
+	}, SizeException::class, 'Size must be between 1 and 2048 pixels.');
 });
