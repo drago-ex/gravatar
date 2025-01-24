@@ -12,6 +12,9 @@ namespace Drago\User;
 use Exception;
 
 
+/**
+ * Custom exception for handling email-related errors.
+ */
 class EmailException extends Exception
 {
 }

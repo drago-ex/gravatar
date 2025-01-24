@@ -1,7 +1,7 @@
 {
 	"name": "drago-ex/gravatar",
 	"type": "library",
-	"description": "Simple Gravatar for Nette Framework",
+	"description": "Simple and customizable Gravatar integration for PHP applications, allowing easy Gravatar image generation based on user email with options for size, default image, and rating.",
 	"license": ["MIT"],
 	"authors": [
 		{
@@ -10,7 +10,7 @@
 		}
 	],
 	"require": {
-		"php": ">=8.1 <8.4",
+		"php": ">=8.3 <9",
 		"nette/di": "^3.0",
 		"nette/utils": "^3.1"
 	},
