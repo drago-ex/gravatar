@@ -8,9 +8,10 @@ Simple and customizable Gravatar integration for PHP applications.
 [![CodeFactor](https://www.codefactor.io/repository/github/drago-ex/gravatar/badge)](https://www.codefactor.io/repository/github/drago-ex/gravatar)
 [![Coverage Status](https://coveralls.io/repos/github/drago-ex/gravatar/badge.svg?branch=master)](https://coveralls.io/github/drago-ex/gravatar?branch=master)
 
-## Technology
-- PHP 8.3 or higher
-- composer
+## Requirements
+- PHP >= 8.3
+- Nette Framework
+- Composer
 
 ## Installation
 ```
