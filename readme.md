@@ -1,7 +1,7 @@
 ## Drago Gravatar
 Simple and customizable Gravatar integration for PHP applications.
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://raw.githubusercontent.com/drago-ex/gravatar/master/license.md)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://raw.githubusercontent.com/drago-ex/gravatar/master/license)
 [![PHP version](https://badge.fury.io/ph/drago-ex%2Fgravatar.svg)](https://badge.fury.io/ph/drago-ex%2Fgravatar)
 [![Tests](https://github.com/drago-ex/gravatar/actions/workflows/tests.yml/badge.svg)](https://github.com/drago-ex/gravatar/actions/workflows/tests.yml)
 [![Coding Style](https://github.com/drago-ex/gravatar/actions/workflows/coding-style.yml/badge.svg)](https://github.com/drago-ex/gravatar/actions/workflows/coding-style.yml)
