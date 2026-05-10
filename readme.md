@@ -49,14 +49,19 @@ on user email addresses, allowing you to customize their size, default image, an
 - Set image rating (g, pg, r, x).
 - Easy integration into your Nette-based application.
 
-## In Presenter
-In your presenter, you can access the Gravatar service, set the user's email, and pass
-the generated Gravatar URL to the template:
+## Using Gravatar in Presenters
+Add the GravatarAdapter trait to your presenter:
 ```php
-$gravatar = $this->gravatar;
-$gravatar->setEmail('someone@somewhere.com');
-$this->template->gravatar = $gravatar->getGravatar();
+use Drago\Localization\TranslatorAdapter;
+
+protected function beforeRender(): void
+{
+	parent::beforeRender();
+	$this->gravatar->setEmail($this->user->getIdentity()->email);
+	$this->template->gravatar = $this->gravatar->getGravatar();
+}
 ```
+
 
 ## In Template
 In your Latte template, simply output the Gravatar image by using the URL provided by the presenter:
