@@ -11,6 +11,8 @@ namespace Drago\User\DI;
 
 use Drago\User\Gravatar;
 use Nette\DI\CompilerExtension;
+use Nette\Schema\Expect;
+use Nette\Schema\Schema;
 
 
 /**
@@ -19,21 +21,13 @@ use Nette\DI\CompilerExtension;
  */
 class GravatarExtension extends CompilerExtension
 {
-	private array $defaults;
-
-
-	/**
-	 * @param int $size The size of the Gravatar image.
-	 * @param string $defaultImage The default image to use if no Gravatar is available.
-	 * @param string $rating The rating of the Gravatar image (e.g., "g", "pg", "r", "x").
-	 */
-	public function __construct(int $size, string $defaultImage, string $rating)
+	public function getConfigSchema(): Schema
 	{
-		$this->defaults = [
-			'size' => $size,
-			'defaultImage' => $defaultImage,
-			'rating' => $rating,
-		];
+		return Expect::structure([
+			'size' => Expect::int(80),
+			'defaultImage' => Expect::string('mm'),
+			'rating' => Expect::string('g'),
+		]);
 	}
 
 
@@ -44,8 +38,13 @@ class GravatarExtension extends CompilerExtension
 	public function loadConfiguration(): void
 	{
 		$builder = $this->getContainerBuilder();
+		$config = $this->config;
 
 		$builder->addDefinition($this->prefix('gravatar'))
-			->setFactory(Gravatar::class, $this->defaults);
+			->setFactory(Gravatar::class, [
+				$config->size,
+				$config->defaultImage,
+				$config->rating,
+			]);
 	}
 }

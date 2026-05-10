@@ -32,8 +32,18 @@ class TestGravatarExtension extends TestCase
 	{
 		$params = $this->container->getParameters();
 		$loader = new ContainerLoader($params['tempDir'], true);
+
 		$class = $loader->load(function (Compiler $compiler): void {
-			$compiler->addExtension('gravatar', new GravatarExtension(80, 'mm', 'g'));
+			$compiler->loadConfig(Tester\FileMock::create('
+			gravatar:
+				size: 80
+				defaultImage: "mm"
+				rating: "g"
+			', 'neon'));
+			$compiler->addExtension(
+				'gravatar',
+				new GravatarExtension,
+			);
 		});
 		return new $class;
 	}

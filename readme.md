@@ -21,8 +21,17 @@ composer require drago-ex/gravatar
 After installation, register the extension in your Nette configuration (`neon` file):
 ```neon
 extensions:
-	- Drago\User\DI\GravatarExtension(size: 80, defaultImage: 'mm', rating: 'g')
+	gravatar: Drago\User\DI\GravatarExtension
 ```
+
+## Optional configuration
+```neon
+gravatar:
+	size: 80
+	defaultImage: "mm"
+	rating: "g"
+```
+
 You can adjust the size, `defaultImage`, and rating parameters based on your needs.
 
 ## Examples
