@@ -62,7 +62,6 @@ protected function beforeRender(): void
 }
 ```
 
-
 ## In Template
 In your Latte template, simply output the Gravatar image by using the URL provided by the presenter:
 ```latte
