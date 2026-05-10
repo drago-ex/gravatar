@@ -10,8 +10,10 @@ declare(strict_types=1);
 namespace Drago\User\DI;
 
 use Drago\User\Gravatar;
+use Drago\User\Options;
 use Nette\DI\CompilerExtension;
 use Nette\Schema\Expect;
+use Nette\Schema\Processor;
 use Nette\Schema\Schema;
 
 
@@ -38,13 +40,18 @@ class GravatarExtension extends CompilerExtension
 	public function loadConfiguration(): void
 	{
 		$builder = $this->getContainerBuilder();
-		$config = $this->config;
+
+		/** @var Options $options */
+		$options = (new Processor)->process(
+			Expect::from(new Options),
+			$this->config,
+		);
 
 		$builder->addDefinition($this->prefix('gravatar'))
 			->setFactory(Gravatar::class, [
-				$config->size,
-				$config->defaultImage,
-				$config->rating,
+				$options->size,
+				$options->defaultImage,
+				$options->rating,
 			]);
 	}
 }
