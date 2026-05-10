@@ -41,7 +41,6 @@ class GravatarExtension extends CompilerExtension
 	{
 		$builder = $this->getContainerBuilder();
 
-		/** @var Options $options */
 		$options = (new Processor)->process(
 			Expect::from(new Options),
 			$this->config,

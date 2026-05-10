@@ -15,12 +15,10 @@ final class Options
 	 */
 	public int $size = 80;
 
-
 	/**
 	 * Default image type when no Gravatar exists.
 	 */
 	public string $defaultImage = 'mm';
-
 
 	/**
 	 * Maximum allowed Gravatar rating.
