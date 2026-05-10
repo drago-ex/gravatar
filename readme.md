@@ -57,7 +57,7 @@ use Drago\Localization\TranslatorAdapter;
 protected function beforeRender(): void
 {
 	parent::beforeRender();
-	$this->gravatar->setEmail($this->user->getIdentity()->email);
+	$this->gravatar->setEmail($this->getUser()->getIdentity()->email);
 	$this->template->gravatar = $this->gravatar->getGravatar();
 }
 ```
