@@ -1,12 +1,11 @@
-## Drago Gravatar
+# Drago Gravatar
+
 Simple and customizable Gravatar integration for PHP applications.
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://raw.githubusercontent.com/drago-ex/gravatar/master/license)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/drago-ex/gravatar/blob/master/license)
 [![PHP version](https://badge.fury.io/ph/drago-ex%2Fgravatar.svg)](https://badge.fury.io/ph/drago-ex%2Fgravatar)
 [![Tests](https://github.com/drago-ex/gravatar/actions/workflows/tests.yml/badge.svg)](https://github.com/drago-ex/gravatar/actions/workflows/tests.yml)
 [![Coding Style](https://github.com/drago-ex/gravatar/actions/workflows/coding-style.yml/badge.svg)](https://github.com/drago-ex/gravatar/actions/workflows/coding-style.yml)
-[![CodeFactor](https://www.codefactor.io/repository/github/drago-ex/gravatar/badge)](https://www.codefactor.io/repository/github/drago-ex/gravatar)
-[![Coverage Status](https://coveralls.io/repos/github/drago-ex/gravatar/badge.svg?branch=master)](https://coveralls.io/github/drago-ex/gravatar?branch=master)
 
 ## Requirements
 - PHP >= 8.3
@@ -17,6 +16,17 @@ Simple and customizable Gravatar integration for PHP applications.
 ```
 composer require drago-ex/gravatar
 ```
+
+## Extension Registration
+After installation, register the extension in your Nette configuration (`neon` file):
+```neon
+extensions:
+	- Drago\User\DI\GravatarExtension(size: 80, defaultImage: 'mm', rating: 'g')
+```
+You can adjust the size, `defaultImage`, and rating parameters based on your needs.
+
+## Examples
+Once the extension is registered, you can use the Gravatar functionality in your presenters and templates.
 
 ## Overview
 Drago Gravatar is a simple, customizable solution for integrating Gravatar images into your PHP
@@ -29,17 +39,6 @@ on user email addresses, allowing you to customize their size, default image, an
 - Choose a default image if the user has no Gravatar.
 - Set image rating (g, pg, r, x).
 - Easy integration into your Nette-based application.
-
-## Extension registration
-After installation, register the extension in your Nette configuration (`neon` file):
-```neon
-extensions:
-	- Drago\User\DI\GravatarExtension(size: 80, defaultImage: 'mm', rating: 'g')
-```
-You can adjust the size, `defaultImage`, and rating parameters based on your needs.
-
-## Usage
-Once the extension is registered, you can use the Gravatar functionality in your presenters and templates.
 
 ## In Presenter
 In your presenter, you can access the Gravatar service, set the user's email, and pass
