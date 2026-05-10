@@ -14,7 +14,7 @@ namespace Drago\User;
  * Trait providing Gravatar functionality.
  * This trait can be used to inject and utilize a Gravatar instance.
  */
-trait GravatarTrait
+trait GravatarAdapter
 {
 	private Gravatar $gravatar;
 
