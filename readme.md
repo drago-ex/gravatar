@@ -52,7 +52,7 @@ on user email addresses, allowing you to customize their size, default image, an
 ## Using Gravatar in Presenters
 Add the GravatarAdapter trait to your presenter:
 ```php
-use Drago\Localization\TranslatorAdapter;
+use Drago\User\GravatarAdapter;
 
 protected function beforeRender(): void
 {
