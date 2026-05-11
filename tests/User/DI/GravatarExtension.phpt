@@ -6,8 +6,8 @@
 
 declare(strict_types=1);
 
-use Drago\User\DI\GravatarExtension;
-use Drago\User\Gravatar;
+use Drago\Gravatar\DI\GravatarExtension;
+use Drago\Gravatar\Gravatar;
 use Nette\DI\Compiler;
 use Nette\DI\Container;
 use Nette\DI\ContainerLoader;

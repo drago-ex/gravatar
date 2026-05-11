@@ -7,10 +7,10 @@
 
 declare(strict_types=1);
 
-namespace Drago\User\DI;
+namespace Drago\Gravatar\DI;
 
-use Drago\User\Gravatar;
-use Drago\User\Options;
+use Drago\Gravatar\Gravatar;
+use Drago\Gravatar\Options;
 use Nette\DI\CompilerExtension;
 use Nette\Schema\Expect;
 use Nette\Schema\Processor;

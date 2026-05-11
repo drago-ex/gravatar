@@ -7,7 +7,7 @@
 
 declare(strict_types=1);
 
-namespace Drago\User;
+namespace Drago\Gravatar;
 
 use Exception;
 

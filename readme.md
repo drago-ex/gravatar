@@ -21,7 +21,7 @@ composer require drago-ex/gravatar
 After installation, register the extension in your Nette configuration (`neon` file):
 ```neon
 extensions:
-	gravatar: Drago\User\DI\GravatarExtension
+	gravatar: Drago\Gravatar\DI\GravatarExtension
 ```
 
 ## Optional configuration
@@ -52,7 +52,7 @@ on user email addresses, allowing you to customize their size, default image, an
 ## Using Gravatar in Presenters
 Add the GravatarAdapter trait to your presenter:
 ```php
-use Drago\User\GravatarAdapter;
+use Drago\Gravatar\GravatarAdapter;
 
 protected function beforeRender(): void
 {
