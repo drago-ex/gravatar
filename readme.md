@@ -57,7 +57,9 @@ use Drago\User\GravatarAdapter;
 protected function beforeRender(): void
 {
 	parent::beforeRender();
-	$this->gravatar->setEmail($this->getUser()->getIdentity()->email);
+	$gravatar = $this->gravatar;
+	$gravatar->setEmail('someone@somewhere.com');
+
 	$this->template->gravatar = $this->gravatar->getGravatar();
 }
 ```
