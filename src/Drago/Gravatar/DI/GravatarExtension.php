@@ -1,10 +1,5 @@
 <?php
 
-/**
- * Drago Extension
- * Package built on Nette Framework
- */
-
 declare(strict_types=1);
 
 namespace Drago\Gravatar\DI;
@@ -17,10 +12,7 @@ use Nette\Schema\Processor;
 use Nette\Schema\Schema;
 
 
-/**
- * Registers the Gravatar service in the DI container.
- * This extension allows the configuration of Gravatar settings such as size, default image, and rating.
- */
+/** Registers the Gravatar service with configuration options in the DI container. */
 class GravatarExtension extends CompilerExtension
 {
 	public function getConfigSchema(): Schema
@@ -33,24 +25,16 @@ class GravatarExtension extends CompilerExtension
 	}
 
 
-	/**
-	 * Registers the Gravatar service in the DI container.
-	 * Uses the provided configuration values to instantiate the Gravatar class.
-	 */
+	/** Registers the Gravatar service in the DI container. */
 	public function loadConfiguration(): void
 	{
 		$builder = $this->getContainerBuilder();
-
 		$options = (new Processor)->process(
 			Expect::from(new Options),
 			$this->config,
 		);
 
 		$builder->addDefinition($this->prefix('gravatar'))
-			->setFactory(Gravatar::class, [
-				$options->size,
-				$options->defaultImage,
-				$options->rating,
-			]);
+			->setFactory(Gravatar::class, [$options]);
 	}
 }

@@ -1,10 +1,5 @@
 <?php
 
-/**
- * Drago Extension
- * Package built on Nette Framework
- */
-
 declare(strict_types=1);
 
 namespace Drago\Gravatar;
@@ -12,9 +7,7 @@ namespace Drago\Gravatar;
 use Exception;
 
 
-/**
- * Custom exception for handling email-related errors.
- */
+/** Exception for handling invalid email address errors. */
 class EmailException extends Exception
 {
 }
