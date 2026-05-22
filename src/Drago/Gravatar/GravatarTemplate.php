@@ -8,7 +8,7 @@ use Nette\Bridges\ApplicationLatte\Template;
 
 
 /** Custom class template with Gravatar image URL property. */
-class GravatarTemplate extends  Template
+class GravatarTemplate extends Template
 {
 	public string $gravatar;
 }
