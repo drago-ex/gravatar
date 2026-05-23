@@ -15,7 +15,6 @@ class Gravatar
 	private string $email;
 
 
-	/** @throws SizeException */
 	public function __construct(
 		private readonly Options $options,
 	) {
@@ -23,10 +22,7 @@ class Gravatar
 	}
 
 
-	/**
-	 * Sets the size of the Gravatar image (1-2048 pixels).
-	 * @throws SizeException
-	 */
+	/** Sets the size of the Gravatar image (1-2048 pixels). */
 	public function setSize(int $size): void
 	{
 		if ($size > 2048 || $size < 1) {
@@ -36,10 +32,7 @@ class Gravatar
 	}
 
 
-	/**
-	 * Sets and validates the email address for the Gravatar.
-	 * @throws EmailException
-	 */
+	/** Sets and validates the email address for the Gravatar. */
 	public function setEmail(string $email): void
 	{
 		if (!Validators::isEmail($email)) {
