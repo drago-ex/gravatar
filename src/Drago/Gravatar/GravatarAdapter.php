@@ -4,8 +4,9 @@ declare(strict_types=1);
 
 namespace Drago\Gravatar;
 
-
 use Nette\Application\UI\Presenter;
+use Nette\Bridges\ApplicationLatte\Template;
+
 
 /** Trait providing Gravatar injection functionality. */
 trait GravatarAdapter
@@ -19,7 +20,7 @@ trait GravatarAdapter
 		$this->gravatar = $gravatar;
 		$presenter->onRender[] = function () use ($presenter): void {
 			$template = $presenter->getTemplate();
-			if ($template instanceof GravatarTemplate) {
+			if ($template instanceof Template) {
 				$template->gravatar = $this->gravatar->getGravatar();
 			}
 		};
