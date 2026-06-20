@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Drago\Gravatar;
 
 
-/** Configuration options for the Gravatar service. */
 final class Options
 {
 	/** Gravatar image size in pixels. */

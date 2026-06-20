@@ -8,7 +8,6 @@ use Nette\Utils\Strings;
 use Nette\Utils\Validators;
 
 
-/** Generates a Gravatar URL based on email, size, default image, and rating. */
 class Gravatar
 {
 	private string $url = 'https://www.gravatar.com/avatar/';
@@ -51,7 +50,6 @@ class Gravatar
 	}
 
 
-	/** Returns the complete Gravatar image URL. */
 	public function getGravatar(): string
 	{
 		$options = $this->options;

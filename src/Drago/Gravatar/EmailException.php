@@ -7,7 +7,6 @@ namespace Drago\Gravatar;
 use Exception;
 
 
-/** Exception for handling invalid email address errors. */
 class EmailException extends Exception
 {
 }

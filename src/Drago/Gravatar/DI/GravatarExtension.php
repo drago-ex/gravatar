@@ -12,7 +12,6 @@ use Nette\Schema\Processor;
 use Nette\Schema\Schema;
 
 
-/** Registers the Gravatar service with configuration options in the DI container. */
 class GravatarExtension extends CompilerExtension
 {
 	public function getConfigSchema(): Schema
@@ -25,7 +24,6 @@ class GravatarExtension extends CompilerExtension
 	}
 
 
-	/** Registers the Gravatar service in the DI container. */
 	public function loadConfiguration(): void
 	{
 		$builder = $this->getContainerBuilder();
