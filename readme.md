@@ -8,16 +8,19 @@ Simple and customizable Gravatar integration for PHP applications.
 [![Coding Style](https://github.com/drago-ex/gravatar/actions/workflows/coding-style.yml/badge.svg)](https://github.com/drago-ex/gravatar/actions/workflows/coding-style.yml)
 
 ## Requirements
+
 - PHP >= 8.3
 - Nette Framework
 - Composer
 
 ## Installation
+
 ```
 composer require drago-ex/gravatar
 ```
 
 ## Extension Registration
+
 After installation, register the extension in your Nette configuration (`neon` file):
 ```neon
 extensions:
@@ -25,6 +28,7 @@ extensions:
 ```
 
 ## Optional configuration
+
 ```neon
 gravatar:
 	size: 80
@@ -35,14 +39,17 @@ gravatar:
 You can adjust the size, `defaultImage`, and rating parameters based on your needs.
 
 ## Examples
+
 Once the extension is registered, you can use the Gravatar functionality in your presenters and templates.
 
 ## Overview
+
 Drago Gravatar is a simple, customizable solution for integrating Gravatar images into your PHP
 application. With this package, you can easily generate and display Gravatar images based
 on user email addresses, allowing you to customize their size, default image, and rating.
 
 ## Features
+
 - Generate Gravatar images based on user email.
 - Customizable image size (from 1 to 2048 pixels).
 - Choose a default image if the user has no Gravatar.
@@ -50,6 +57,7 @@ on user email addresses, allowing you to customize their size, default image, an
 - Easy integration into your Nette-based application.
 
 ## Using Gravatar in Presenters
+
 Add the GravatarAdapter trait to your presenter:
 ```php
 use Drago\Gravatar\GravatarAdapter;
@@ -65,12 +73,14 @@ protected function beforeRender(): void
 ```
 
 ## In Template
+
 In your Latte template, simply output the Gravatar image by using the URL provided by the presenter:
 ```latte
 <img src="{$gravatar}" alt="">
 ```
 
 ## Customizing Gravatar
+
 You can customize the Gravatar by changing the size, defaultImage, and rating parameters in the configuration:
 
 `size`: The size of the Gravatar image in pixels (1 to 2048). Default is 80.
