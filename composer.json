@@ -1,7 +1,7 @@
 {
 	"name": "drago-ex/gravatar",
-	"type": "library",
 	"description": "Simple and customizable Gravatar integration for PHP applications, allowing easy Gravatar image generation based on user email with options for size, default image, and rating.",
+	"type": "library",
 	"license": ["MIT"],
 	"authors": [
 		{
