@@ -9,7 +9,7 @@ Simple and customizable Gravatar integration for PHP applications.
 
 ## Requirements
 
-- PHP >= 8.3
+- PHP >= 8.3, < 9
 - Nette Framework
 - Composer
 

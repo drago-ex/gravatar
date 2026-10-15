@@ -2,7 +2,7 @@
 	"name": "drago-ex/gravatar",
 	"description": "Simple and customizable Gravatar integration for PHP applications, allowing easy Gravatar image generation based on user email with options for size, default image, and rating.",
 	"type": "library",
-	"license": ["MIT"],
+	"license": "MIT",
 	"authors": [
 		{
 			"name": "Zdeněk Papučík",
@@ -22,7 +22,9 @@
 		"phpstan/phpstan-nette": "^2.0"
 	},
 	"autoload": {
-		"classmap": ["src/"],
+		"classmap": [
+			"src/"
+		],
 		"psr-4": {
 			"Drago\\": "src"
 		}
