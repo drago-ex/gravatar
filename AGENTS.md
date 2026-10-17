@@ -16,6 +16,10 @@ Use this file as package-specific guidance when working in this repository. Keep
 - `.github/`: CI workflows; keep their PHP versions and commands consistent with Composer and the package scripts.
 - `composer.json`: package metadata, dependency constraints, autoloading, and available Composer scripts.
 
+## Key Parts
+- `Drago\Gravatar\Gravatar`: `getUrl($email, $size)` is stateless and preferred; `setEmail()` with `getGravatar()` keeps per-service state. Options are validated (size 1-2048, rating g/pg/r/x) and query parameters are URL-encoded.
+- `GravatarAdapter` passes `$gravatar` to the template only when an email is set; typed templates must declare the property.
+
 ## Dependencies
 
 Composer constraints describe the package contract. Before changing integration behavior, inspect the source and the actual call sites in this package; do not infer runtime usage solely from dependency declarations.

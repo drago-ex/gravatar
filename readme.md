@@ -38,51 +38,59 @@ gravatar:
 
 You can adjust the size, `defaultImage`, and rating parameters based on your needs.
 
-## Examples
-
-Once the extension is registered, you can use the Gravatar functionality in your presenters and templates.
-
 ## Overview
 
-Drago Gravatar is a simple, customizable solution for integrating Gravatar images into your PHP
-application. With this package, you can easily generate and display Gravatar images based
-on user email addresses, allowing you to customize their size, default image, and rating.
+Drago Gravatar generates Gravatar image URLs from user email addresses, with a configurable size,
+default image and rating.
 
-## Features
+## Usage in Services and Templates
 
-- Generate Gravatar images based on user email.
-- Customizable image size (from 1 to 2048 pixels).
-- Choose a default image if the user has no Gravatar.
-- Set image rating (g, pg, r, x).
-- Easy integration into your Nette-based application.
+Inject `Drago\Gravatar\Gravatar` and call `getUrl()`. It does not change the state of the shared
+service, so it is safe for lists of several users:
+
+```php
+$url = $this->gravatar->getUrl(someone@somewhere.com);
+$small = $this->gravatar->getUrl(someone@somewhere.com, 40);
+```
 
 ## Using Gravatar in Presenters
 
-Add the GravatarAdapter trait to your presenter:
+The `GravatarAdapter` trait passes the URL to the template as `$gravatar` when the presenter sets an email:
+
 ```php
 use Drago\Gravatar\GravatarAdapter;
+use Nette\Application\UI\Presenter;
 
-protected function beforeRender(): void
+final class ProfilePresenter extends Presenter
 {
-	parent::beforeRender();
-	$gravatar = $this->gravatar;
-	$gravatar->setEmail('someone@somewhere.com');
+	use GravatarAdapter;
 
-	$this->template->gravatar = $this->gravatar->getGravatar();
+	protected function beforeRender(): void
+	{
+		parent::beforeRender();
+		$this->gravatar->setEmail($this->getUser()->getIdentity()->email);
+	}
 }
+```
+
+When no email is set, the variable is not passed and rendering continues normally. With a typed
+template class, declare the property:
+
+```php
+public string $gravatar;
 ```
 
 ## In Template
 
-In your Latte template, simply output the Gravatar image by using the URL provided by the presenter:
 ```latte
-<img src="{$gravatar}" alt="">
+<img n:if="isset($gravatar)" src="{$gravatar}" alt="">
 ```
 
-## Customizing Gravatar
+## Options
 
-You can customize the Gravatar by changing the size, defaultImage, and rating parameters in the configuration:
+- `size`: image size in pixels, 1 to 2048. Default is `80`. `setSize()` changes it only for the service, not the configuration.
+- `defaultImage`: image used when the user has no Gravatar, for example `mm`, `identicon`, `monsterid`, `wavatar`, or a URL of your own image. Default is `mm`. Values are URL-encoded.
+- `rating`: maximum rating, one of `g`, `pg`, `r`, `x`. Default is `g`. Other values throw `InvalidArgumentException`.
 
-`size`: The size of the Gravatar image in pixels (1 to 2048). Default is 80.
-`defaultImage`: The default image used when the user doesn't have a Gravatar (e.g., `mm`, `identicon`, `monsterid`, `wavatar`, etc.). Default is `mm`.
-`rating`: The rating of the Gravatar image (`g`, `pg`, `r`, `x`). Default is g.
+Invalid emails throw `Drago\Gravatar\EmailException`, invalid sizes `Drago\Gravatar\SizeException`.
+`getGravatar()` throws `EmailException` when `setEmail()` has not been called.

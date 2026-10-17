@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Test: Drago\User\DI\GravatarExtension
+ * Test: Drago\Gravatar\DI\GravatarExtension
  */
 
 declare(strict_types=1);
