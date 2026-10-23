@@ -7,7 +7,7 @@ Use this file as package-specific guidance when working in this repository. Keep
 - **Type**: library
 - **Purpose**: Simple and customizable Gravatar integration for PHP applications, allowing easy Gravatar image generation based on user email with options for size, default image, and rating.
 - **PHP**: >=8.3 <9
-- **Runtime dependencies**: nette/di (^3.2), nette/utils (^4.0), nette/application (^3.2)
+- **Runtime dependencies**: nette/di (^3.2.1), nette/schema (^1.2), nette/utils (^4.0), nette/application (^3.2)
 - **License**: MIT
 
 ## Repository Layout
@@ -17,18 +17,18 @@ Use this file as package-specific guidance when working in this repository. Keep
 - `composer.json`: package metadata, dependency constraints, autoloading, and available Composer scripts.
 
 ## Key Parts
-- `Drago\Gravatar\Gravatar`: `getUrl($email, $size)` is stateless and preferred; `setEmail()` with `getGravatar()` keeps per-service state. Options are validated (size 1-2048, rating g/pg/r/x) and query parameters are URL-encoded.
+- `Drago\Gravatar\Gravatar`: `getUrl($email, $size)` is stateless and preferred; `setEmail()` with `getGravatar()` keeps per-service state. Options are validated (size 1-2048, rating g/pg/r/x) and query parameters are URL-encoded. The email is trimmed, lowercased and hashed with SHA-256 (the hash Gravatar documents; MD5 was used before 2026-10-23).
 - `GravatarAdapter` passes `$gravatar` to the template only when an email is set; typed templates must declare the property.
 
 ## Dependencies
 
 Composer constraints describe the package contract. Before changing integration behavior, inspect the source and the actual call sites in this package; do not infer runtime usage solely from dependency declarations.
-Development dependencies include nette/tester (^2.5), nette/bootstrap (^3.2), tracy/tracy (^2.10), phpstan/phpstan-nette (^2.0).
+Development dependencies include nette/tester (^2.5), phpstan/phpstan-nette (^2.0), latte/latte (^3.0).
 
 ## Essential Commands
 
 ```bash
-composer tester                 # tester tests -s
+composer tester                 # tester tests -s -C
 composer phpstan                # phpstan analyse
 ```
 

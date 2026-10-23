@@ -109,7 +109,7 @@ class Gravatar
 			throw new EmailException('Email address is not valid.');
 		}
 
-		return hash('md5', $email);
+		return hash('sha256', $email); // the hash Gravatar documents (MD5 is legacy)
 	}
 
 

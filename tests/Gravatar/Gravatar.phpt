@@ -30,7 +30,7 @@ test('The URL contains the hash of the normalized email and the options', functi
 	$gravatar->setEmail(' Someone@Somewhere.com ');
 
 	Assert::same(
-		'https://www.gravatar.com/avatar/' . md5('someone@somewhere.com') . '?s=80&d=mm&r=g',
+		'https://www.gravatar.com/avatar/' . hash('sha256', 'someone@somewhere.com') . '?s=80&d=mm&r=g',
 		$gravatar->getGravatar(),
 	);
 });
@@ -41,7 +41,7 @@ test('A custom default image URL is encoded', function () {
 	$gravatar->setEmail('someone@somewhere.com');
 
 	Assert::same(
-		'https://www.gravatar.com/avatar/' . md5('someone@somewhere.com')
+		'https://www.gravatar.com/avatar/' . hash('sha256', 'someone@somewhere.com')
 			. '?s=80&d=https%3A%2F%2Fexample.com%2Fa%20b.png%3Fx%3D1%26y%3D2&r=g',
 		$gravatar->getGravatar(),
 	);

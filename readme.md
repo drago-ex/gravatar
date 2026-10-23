@@ -49,8 +49,8 @@ Inject `Drago\Gravatar\Gravatar` and call `getUrl()`. It does not change the sta
 service, so it is safe for lists of several users:
 
 ```php
-$url = $this->gravatar->getUrl(someone@somewhere.com);
-$small = $this->gravatar->getUrl(someone@somewhere.com, 40);
+$url = $this->gravatar->getUrl('someone@somewhere.com');
+$small = $this->gravatar->getUrl('someone@somewhere.com', 40);
 ```
 
 ## Using Gravatar in Presenters
@@ -92,5 +92,6 @@ public string $gravatar;
 - `defaultImage`: image used when the user has no Gravatar, for example `mm`, `identicon`, `monsterid`, `wavatar`, or a URL of your own image. Default is `mm`. Values are URL-encoded.
 - `rating`: maximum rating, one of `g`, `pg`, `r`, `x`. Default is `g`. Other values throw `InvalidArgumentException`.
 
+The email is trimmed, lowercased and hashed with SHA-256, as Gravatar documents.
 Invalid emails throw `Drago\Gravatar\EmailException`, invalid sizes `Drago\Gravatar\SizeException`.
 `getGravatar()` throws `EmailException` when `setEmail()` has not been called.
