@@ -70,7 +70,11 @@ final class ProfilePresenter extends Presenter
 	protected function beforeRender(): void
 	{
 		parent::beforeRender();
-		$this->gravatar->setEmail($this->getUser()->getIdentity()->email);
+		// a guest has no identity, so no avatar
+		$email = $this->getUser()->getIdentity()?->email;
+		if (is_string($email)) {
+			$this->gravatar->setEmail($email);
+		}
 	}
 }
 ```
