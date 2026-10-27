@@ -1,7 +1,5 @@
 # Drago Gravatar
 
-English | [Čeština](readme.cs.md)
-
 Simple and customizable Gravatar integration for PHP applications.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/drago-ex/gravatar/blob/main/license)
