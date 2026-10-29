@@ -1,10 +1,8 @@
-<?php
+<?php declare(strict_types=1);
 
 /**
  * Test: Drago\Gravatar\Gravatar
  */
-
-declare(strict_types=1);
 
 use Drago\Gravatar\EmailException;
 use Drago\Gravatar\Gravatar;
@@ -42,7 +40,7 @@ test('A custom default image URL is encoded', function () {
 
 	Assert::same(
 		'https://www.gravatar.com/avatar/' . hash('sha256', 'someone@somewhere.com')
-			. '?s=80&d=https%3A%2F%2Fexample.com%2Fa%20b.png%3Fx%3D1%26y%3D2&r=g',
+		. '?s=80&d=https%3A%2F%2Fexample.com%2Fa%20b.png%3Fx%3D1%26y%3D2&r=g',
 		$gravatar->getGravatar(),
 	);
 });

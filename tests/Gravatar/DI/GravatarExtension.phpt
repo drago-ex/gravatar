@@ -1,10 +1,8 @@
-<?php
+<?php declare(strict_types=1);
 
 /**
  * Test: Drago\Gravatar\DI\GravatarExtension
  */
-
-declare(strict_types=1);
 
 use Drago\Gravatar\DI\GravatarExtension;
 use Drago\Gravatar\Gravatar;
@@ -22,7 +20,7 @@ class TestGravatarExtension extends TestCase
 	private function createContainer(): Container
 	{
 		$tempDir = __DIR__ . '/temp';
-		@mkdir($tempDir);
+		@mkdir($tempDir); // @ directory may already exist
 
 		$loader = new ContainerLoader($tempDir, true);
 

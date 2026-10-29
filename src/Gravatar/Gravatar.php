@@ -1,12 +1,11 @@
-<?php
-
-declare(strict_types=1);
+<?php declare(strict_types=1);
 
 namespace Drago\Gravatar;
 
 use InvalidArgumentException;
 use Nette\Utils\Strings;
 use Nette\Utils\Validators;
+use function sprintf;
 
 
 class Gravatar

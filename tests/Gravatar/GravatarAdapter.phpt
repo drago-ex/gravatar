@@ -1,10 +1,8 @@
-<?php
+<?php declare(strict_types=1);
 
 /**
  * Test: Drago\Gravatar\GravatarAdapter
  */
-
-declare(strict_types=1);
 
 use Drago\Gravatar\Gravatar;
 use Drago\Gravatar\GravatarAdapter;
