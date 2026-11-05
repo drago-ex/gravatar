@@ -1,6 +1,6 @@
 # Drago Gravatar
 
-Simple and customizable Gravatar integration for PHP applications.
+Gravatar image URLs from email addresses for Nette, with a configurable size, default image and rating.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/drago-ex/gravatar/blob/main/license)
 [![PHP version](https://badge.fury.io/ph/drago-ex%2Fgravatar.svg)](https://badge.fury.io/ph/drago-ex%2Fgravatar)
@@ -27,7 +27,7 @@ extensions:
 	gravatar: Drago\Gravatar\DI\GravatarExtension
 ```
 
-## Optional configuration
+## Configuration
 
 ```neon
 gravatar:
@@ -37,11 +37,6 @@ gravatar:
 ```
 
 You can adjust the size, `defaultImage`, and rating parameters based on your needs.
-
-## Overview
-
-Drago Gravatar generates Gravatar image URLs from user email addresses, with a configurable size,
-default image and rating.
 
 ## Usage in Services and Templates
 
@@ -69,7 +64,7 @@ final class ProfilePresenter extends Presenter
 	{
 		parent::beforeRender();
 		// a guest has no identity, so no avatar
-		$email = $this->getUser()->getIdentity()?->email;
+		$email = $this->getUser()->getIdentity()?->getData()['email'] ?? null;
 		if (is_string($email)) {
 			$this->gravatar->setEmail($email);
 		}

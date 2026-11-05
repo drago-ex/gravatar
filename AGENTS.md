@@ -17,7 +17,7 @@ Use this file as package-specific guidance when working in this repository. Keep
 - `composer.json`: package metadata, dependency constraints, autoloading, and available Composer scripts.
 
 ## Key Parts
-- `Drago\Gravatar\Gravatar`: `getUrl($email, $size)` is stateless and preferred; `setEmail()` with `getGravatar()` keeps per-service state. Options are validated (size 1-2048, rating g/pg/r/x) and query parameters are URL-encoded. The email is trimmed, lowercased and hashed with SHA-256 (the hash Gravatar documents; MD5 was used before 2026-10-23).
+- `Drago\Gravatar\Gravatar`: `getUrl($email, $size)` is stateless and preferred; `setEmail()` with `getGravatar()` keeps per-service state. Options are validated (size 1-2048, rating g/pg/r/x) and query parameters are URL-encoded. The email is trimmed, lowercased and hashed with SHA-256 (the hash Gravatar documents).
 - `GravatarAdapter` passes `$gravatar` to the template only when an email is set; typed templates must declare the property.
 
 ## Dependencies
